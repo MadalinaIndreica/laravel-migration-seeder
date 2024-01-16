@@ -9,12 +9,17 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <blockquote class="blockquote mb-0">
+                            <blockquote class="blockquote mb-0 text-center">
                                 <p>{{ $train->arrival_station }} </p>
                             </blockquote>
-                            <p>partenza da {{ $train->departure_station }}</p>
-                            <p>alle {{date("H:i:s", strtotime($train->departure_time))  }} </p>
-                            <p>alle {{$train->departure_time->format("H:i:s")}} </p>
+                            <p>
+                                <strong>partenza da</strong> {{ $train->departure_station }} <br>
+                                <strong>parte alle</strong> {{date("H:i", strtotime($train->departure_time)) }} <br>
+                                <strong>arriva alle</strong>  {{date("H:i", strtotime($train->arrival_time)) }} <br>
+                                <strong>treno</strong> {{ $train->train_code}} <br>
+                                carrozza n {{ $train->carriages_number}}
+                            </p>
+                            
                         </div>
                         <button type="button" class="btn btn-info">buy</button>
                     </div>
